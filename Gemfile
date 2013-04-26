@@ -12,7 +12,7 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml'
   gem 'haml_coffee_assets'
