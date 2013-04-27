@@ -11,3 +11,26 @@
  *= require_self
  *= require_tree .
  */
+
+a#fb-login{
+  background-color: #3b5998;
+}
+
+a#fb-login:hover{
+  background-color: #23487e;
+}
+a#fb-login,
+a#fb-login:focus,
+a#fb-login:hover{
+  padding: 0.06em 0.12em 0 0.12em;
+  color: #fff;
+  text-shadow: none;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+  vertical-align: middle;
+  background-image: none;
+  font-size: 18pt;
+}
+a#fb-login i{
+  padding-right: 0.12em;
+  font-size: 18pt;
+}
