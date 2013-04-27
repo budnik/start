@@ -3,21 +3,37 @@
 =javascript_tag "document.points = " + Person.select([:latitude, :longitude, :id]).to_json
 
 .jumbotron
-  %p.lead This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-  %hr
+  .span5
+    %h2 We connect people with desire to help and those who need it.
+  .span6
+    %h4 People who need your help never were that close to you!
+    %ul
+    %li Browse a place on the map where you can help
+    %li Pick type of activity you are interested in
+    %li Check if you fit the deadline
+    %li Do it!
+    %br
+    %br
   #map
   %p.lead Use it as a starting point to create something more unique.
-  %p
-    %a.btn.btn-success.btn-large
-      Let's do it!
+
 %hr
-%h1
 .row-fluid
-  - 3.times do |i|
-    .span4
-      %h2=%w[Спонсори Допомога Інше][i]
-      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      %p
-        %a
-          View details
-          %i.icon-circle-arrow-right
+  .span4.pam
+    %h4 Success story
+    %blockquote
+      "The time I feel most lonely is after six o’clock at night, but when I’ve been out to a Contact tea, then I don’t feel lonely at all, just fresh memories of a lovely afternoon out with friends. It’s good getting out and meeting people and it’s fun for us to get together. It has made such a difference to my life" 
+      %small Clare
+
+  .span4.pam
+    %h4 Success story
+    %blockquote
+      "I have had many good experiences both volunteering and visiting my neighbor Lucy. My volunteer experience has shown me that I can bring joy to older people. Everyone will have to face having parents and grandparents growing older and becoming dependent on their children. Dealing with this situation has made me a stronger and more caring person."
+      %small Peter
+
+  .span4.pam
+    %h4 Success story
+    %blockquote
+      "Having to stop working two and half years ago because of my illness was really difficult for me. I loved working and had worked very hard at not to have to give up - working part-time and then as a temp. As a volunteer I feel as if I am working again! Volunteer Tutor My life has progressed in a way that 3 years ago I would have never thought possible. I don ' t think it ' s an exaggeration to say that without the volunteering I might not even be here today." 
+      %small Robert
+
