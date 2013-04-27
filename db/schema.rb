@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427081333) do
+ActiveRecord::Schema.define(:version => 20130427082932) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "category"
+    t.date     "deadline"
+    t.text     "description"
+    t.string   "state"
+    t.integer  "person_id"
+    t.integer  "volunteer_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "activities", ["person_id"], :name => "index_activities_on_person_id"
+  add_index "activities", ["volunteer_id"], :name => "index_activities_on_volunteer_id"
 
   create_table "categories", :force => true do |t|
     t.date     "deadline"
@@ -25,6 +39,27 @@ ActiveRecord::Schema.define(:version => 20130427081333) do
 
   add_index "categories", ["person_id"], :name => "index_categories_on_person_id"
   add_index "categories", ["volunteer_id"], :name => "index_categories_on_volunteer_id"
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.date     "dob"
+  end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "volunteers", :force => true do |t|
     t.integer  "uid",                :limit => 8
