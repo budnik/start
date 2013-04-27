@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+[:food, :meds, :household, :lift].each do |c|
+  Category.find_or_create_by_name c
+end
+require 'vydumschik'
+Person.create 10.times.map{{name: Vydumschik::Name.full_name}}
+  
