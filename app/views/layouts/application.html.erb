@@ -20,21 +20,13 @@
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <h3 class="pull-left" style="color:#c80013">HELP FOR FREE</h3>
+          <h3 class="pull-left" style="color:#c80013"><span class="icon-heart" style="color:#f20017;"></span>&nbsp;HELP FOR FREE</h3>
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%unless volunteer_signed_in?%>
-            <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do%>
-              <i class="icon-facebook-sign"></i>Увійти
-            <%-end%>
-          <%else%>
-            <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
-              <%= image_tag current_volunteer.image%>
-            <%-end%>
-          <%-end%>
+
           <div class="container pull-right nav-collapse">
             <ul class="nav">
               <li>
@@ -44,6 +36,15 @@
               </li>
               <li><%= link_to "John Smith", "/path1"  %>&nbsp;</li>
             </ul>
+            <%unless volunteer_signed_in?%>
+              <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do%>
+                <i class="icon-facebook-sign"></i>Увійти
+              <%-end%>
+            <%else%>
+              <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
+                <%= image_tag current_volunteer.image%>
+              <%-end%>
+            <%-end%>
           </div><!--/.nav-collapse -->
         </div>
       </div>
