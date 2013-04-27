@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426215706) do
+ActiveRecord::Schema.define(:version => 20130427025950) do
 
   create_table "volunteers", :force => true do |t|
     t.integer  "fb_id"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130426215706) do
     t.string   "name"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.string   "location"
+    t.string   "image"
   end
 
   add_index "volunteers", ["email"], :name => "index_volunteers_on_email", :unique => true

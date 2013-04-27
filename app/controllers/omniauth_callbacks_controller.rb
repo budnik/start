@@ -5,16 +5,19 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end  
 
   def facebook
-    raise request.env["omniauth.auth"].to_json
-    @user = Volunteer.find_or_create_by_fb_id request.env["omniauth.auth"]["uid"]
+    @volunteer = Volunteer.find_or_create_by_fb_id request.env["omniauth.auth"]["uid"] do |v|
+      %w(email image name location).each do |f|
+        v.send f+?=, request.env["omniauth.auth"]["info"][f]
+      end
+    end
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+    if @volunteer.persisted?
+      sign_in_and_redirect @volunteer, :event => :authentication #this will throw if @volunteer is not activated
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
+      #would not get here
       session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      redirect_to new_volunteer_registration_url
     end
-    redirect_to :root, notice: "Ура!"
   end
 end
