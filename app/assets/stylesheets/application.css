@@ -51,3 +51,13 @@ a.me.thumbnail{
   max-width: 35px;
   max-height: 35px;
 }
+
+.alert{
+  margin: 0.5em;
+  z-index: -1;
+  top: -10px;
+  position: relative;
+}
+.alert .close{
+  top:0;
+}

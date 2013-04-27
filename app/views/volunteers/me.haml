@@ -1,0 +1,8 @@
+.row.container
+  .span6
+    .thumbnail
+      =image_tag current_volunteer.image, class: 'pull-right'
+      %h1
+        =current_volunteer.name
+        %small=current_volunteer.email
+      %p=current_volunteer.location
