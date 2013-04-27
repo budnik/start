@@ -74,7 +74,7 @@ RailsAdmin.config do |config|
   configure :category, :belongs_to_association 
   configure :deadline, :date
   configure :description, :text 
-  configure :state, :string 
+  #configure :state, :string 
   #     configure :person_id, :integer         # Hidden 
   #     configure :volunteer_id, :integer         # Hidden 
   configure :created_at, :datetime 

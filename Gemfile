@@ -39,4 +39,5 @@ gem 'omniauth-facebook'
 # gem 'backbone-on-rails'
 # gem 'acts_as_paranoid'
 # gem 'draper'
-gem 'vydumschik', require: false
+gem 'vydumschik', require: false 
+gem "geocoder"
