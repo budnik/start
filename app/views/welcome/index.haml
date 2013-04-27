@@ -1,3 +1,7 @@
+%script(type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU")
+=javascript_include_tag :map
+=javascript_tag "document.points = " + Person.select([:latitude, :longitude]).to_json
+
 .jumbotron
   %h1
     Вітаю!
@@ -6,8 +10,7 @@
     %a.btn.btn-success.btn-large
       Let's do it!
   %hr
-    %script(type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=ov7Y-5jisKhaGhoGvJVM-GEQKx18dsJd&height=450")
-  %hr
+    #map(style='width:100%;height:300px')
   %p.lead This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique. This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
   %p
     %a.btn.btn-success.btn-large

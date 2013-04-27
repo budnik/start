@@ -4,4 +4,3 @@
 #= require_tree .
 $ ->
   $('.alert-success').delay(1000).animate {top: '-100px'}, 2000
-
