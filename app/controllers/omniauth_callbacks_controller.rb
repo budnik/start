@@ -1,7 +1,7 @@
 #encoding: utf-8
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def failure
-    redirect_to :root, alert: "Неудалось авторизироваться в FACEBOOK"
+    redirect_to :root, alert: "Невдалось авторизуватись через facebook"
   end  
 
   def facebook
