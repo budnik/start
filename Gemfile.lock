@@ -175,6 +175,7 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    state_machine (1.2.0)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -215,6 +216,7 @@ DEPENDENCIES
   sextant
   simple_form
   sqlite3
+  state_machine
   therubyracer
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

@@ -1,4 +1,10 @@
 Start::Application.routes.draw do
+  resources :categories
+
+
+  resources :ivalids
+
+
   devise_for :volunteers, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   devise_scope :volunteer do
     get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
