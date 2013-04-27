@@ -25,9 +25,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%-unless volunteer_signed_in?%>
+          <%unless volunteer_signed_in?%>
             <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do%>
               <i class="icon-facebook-sign"></i>Увійти
+            <%-end%>
+          <%else%>
+            <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
+              <%= image_tag current_volunteer.image%>
             <%-end%>
           <%-end%>
           <div class="container-fluid nav-collapse">
@@ -40,27 +44,12 @@
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+      <%= bootstrap_flash %>
+      <%= yield %>
+    <hr>
+    <footer>
+      <p>&copy; Company 2013</p>
+    </footer>
 
     </div> <!-- /container -->
 
