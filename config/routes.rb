@@ -1,5 +1,5 @@
 Start::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin' ->
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :activities, only: [:show, :apply]
   resources :people, only: :show
