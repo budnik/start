@@ -4,7 +4,7 @@
 RailsAdmin.config do |config|
   config.authorize_with do
     unless [100002976893209, 1095064150, 734162175, 100001202767417].include? current_volunteer.uid.to_i
-      flash[:error] = 'You are not allowed to acces that page'
+      flash[:error] = 'You are not allowed to access that page'
       redirect_to main_app.root_path
     end
   end
@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
   # config.included_models = ['Activity', 'Person', 'Volunteer']
 
   # Label methods for model instances:
-  # config.label_methods << :description # Default is [:name, :title]
+  config.label_methods << :description # Default is [:name, :title]
 
 
   ################  Model configuration  ################
@@ -59,26 +59,18 @@ RailsAdmin.config do |config|
 
   ###  Activity  ###
 
-  config.model 'Activity' do
+  #config.model 'Activity' do
 
   #   # You can copy this to a 'rails_admin do ... end' block inside your activity.rb model definition
 
   #   # Found associations:
 
-  configure :person, :belongs_to_association 
-  #     configure :volunteer, :belongs_to_association 
+  #configure :id, :integer
 
-  #   # Found columns:
-
-  configure :id, :integer 
-  configure :category, :belongs_to_association 
-  configure :deadline, :date
-  configure :description, :text 
-  #configure :state, :string 
   #     configure :person_id, :integer         # Hidden 
   #     configure :volunteer_id, :integer         # Hidden 
-  configure :created_at, :datetime 
-  configure :updated_at, :datetime 
+  #configure :created_at, :datetime 
+  #configure :updated_at, :datetime 
 
   #   # Cross-section configuration:
 
@@ -103,7 +95,7 @@ RailsAdmin.config do |config|
   #     # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
   #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
   #     # using `field` instead of `configure` will exclude all other fields and force the ordering
-  end
+  #end
 
 
   ###  Person  ###
@@ -123,7 +115,7 @@ RailsAdmin.config do |config|
   #     configure :address, :text 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
-  #     configure :dob, :date 
+  #     configure :dob, :date
 
   #   # Cross-section configuration:
 
