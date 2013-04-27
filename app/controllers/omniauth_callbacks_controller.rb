@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end  
 
   def facebook
-    @volunteer = Volunteer.find_or_create_by_fb_id request.env["omniauth.auth"]["uid"] do |v|
+    @volunteer = Volunteer.find_or_create_by_uid request.env["omniauth.auth"]["uid"] do |v|
       %w(email image name location).each do |f|
         v.send f+?=, request.env["omniauth.auth"]["info"][f]
       end

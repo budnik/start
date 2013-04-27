@@ -14,21 +14,21 @@
 ActiveRecord::Schema.define(:version => 20130427025950) do
 
   create_table "volunteers", :force => true do |t|
-    t.integer  "fb_id"
-    t.integer  "sign_in_count",      :default => 0
+    t.integer  "uid",                :limit => 8
+    t.integer  "sign_in_count",                   :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "email"
     t.string   "name"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "location"
     t.string   "image"
   end
 
   add_index "volunteers", ["email"], :name => "index_volunteers_on_email", :unique => true
-  add_index "volunteers", ["fb_id"], :name => "index_volunteers_on_fb_id", :unique => true
+  add_index "volunteers", ["uid"], :name => "index_volunteers_on_uid", :unique => true
 
 end
