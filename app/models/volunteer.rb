@@ -3,6 +3,8 @@ class Volunteer < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise  :trackable, :omniauthable
+  has_many :activities
+  has_many :people, through: :activities
 
   # attr_accessible :title, :body
 end

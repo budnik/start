@@ -1,6 +1,6 @@
-class CreateIvalids < ActiveRecord::Migration
+class CreatePeople < ActiveRecord::Migration
   def change
-    create_table :ivalids do |t|
+    create_table :people do |t|
       t.string :name
       t.text :address
 

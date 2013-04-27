@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427025950) do
+ActiveRecord::Schema.define(:version => 20130427081333) do
+
+  create_table "categories", :force => true do |t|
+    t.date     "deadline"
+    t.text     "description"
+    t.string   "state"
+    t.integer  "person_id"
+    t.integer  "volunteer_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "categories", ["person_id"], :name => "index_categories_on_person_id"
+  add_index "categories", ["volunteer_id"], :name => "index_categories_on_volunteer_id"
 
   create_table "volunteers", :force => true do |t|
     t.integer  "uid",                :limit => 8

@@ -1,8 +1,8 @@
 Start::Application.routes.draw do
-  resources :categories
+  resources :activities
 
 
-  resources :ivalids
+  resources :people
 
 
   devise_for :volunteers, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
