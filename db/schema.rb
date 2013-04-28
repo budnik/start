@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427194640) do
+ActiveRecord::Schema.define(:version => 20130428080731) do
 
   create_table "activities", :force => true do |t|
     t.date     "deadline"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130427194640) do
     t.date     "dob"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "phone"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

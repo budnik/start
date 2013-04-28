@@ -12,9 +12,9 @@
       .span2.ptm
         %h2=@activity.person.try :name
         %p 
-          =@activity.person.try :address
+          =@activity.person.try(:address)
           %br
-          044 567-89-12
+          =@activity.person.try(:phone)
     .row
       .span6
         - unless volunteer_signed_in?
