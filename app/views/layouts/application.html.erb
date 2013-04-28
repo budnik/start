@@ -44,7 +44,9 @@
                 </div>
               </li>
             </ul>
-
+            <%= link_to destroy_user_session_path, class:[:btn, 'btn-mini', 'btn-inverse'] do%>
+              <i class="icon-external-link"></i>
+            <% end %>
             <%else%>
               <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'pull-right'], id: 'fb-login' do%>
                 <i class="icon-facebook-sign"></i>Login
