@@ -5,7 +5,10 @@ ymaps.ready ->
     map = new ymaps.Map 'map', {center: [50.45, 30.523], zoom: 11}
     @haveMap = true
     # iconContent: '<i class="icon-plus-sign"></i>'}
-    marks = (new ymaps.Placemark [c['latitude'], c['longitude']], {balloonContent: JST["test"]({a:c["activity"]})},{ balloonCloseButton: false} for c in document.points)
+    marks = document.points.map (c)->
+      param= balloonContent: JST["test"] a: c["activity"] 
+      opts= balloonCloseButton: false, preset: c["activity"]["icon"]
+      new ymaps.Placemark [c['latitude'], c['longitude']], param, opts 
     marks.map (m)->
       map.geoObjects.add m
     map.controls.add('zoomControl', { top: 75, left: 5 })
