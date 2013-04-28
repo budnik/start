@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20130427194640) do
 
   create_table "activities", :force => true do |t|
-    t.string   "name"
-    t.integer  "person_id"
     t.date     "deadline"
     t.text     "description"
     t.string   "state"
+    t.integer  "person_id"
     t.integer  "volunteer_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "category_id"
+    t.string   "name"
   end
 
   add_index "activities", ["person_id"], :name => "index_activities_on_person_id"
