@@ -26,4 +26,4 @@
             Login
         - else
           - disabled = @activity.open? ? nil : 'disabled inactive'
-          = button_to 'Apply', apply_activity_path(@activity), method: :post, class: [:btn, 'btn-success', disabled], id: 'apply-btn', :confirm => ("Are you sure?" unless disabled)
+          = button_to 'Login to apply', apply_activity_path(@activity), method: :post, class: [:btn, 'btn-success', disabled], id: 'apply-btn', :confirm => ("Are you sure?" unless disabled)
