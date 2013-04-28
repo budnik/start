@@ -12,12 +12,13 @@
           =@activity.state
         %p.lightgray
           =@activity.description
-      .span2.ptm.border-left
-        %h2.darkgray=@activity.person.try :name
-        %p.lightgray 
-          =@activity.person.try(:address)
-          %br
-          =@activity.person.try(:phone)
+      - if volunteer_signed_in? and @activity.volunteer = current_volunteer
+        .span2.ptm.border-left
+          %h2.darkgray=@activity.person.try :name
+          %p.lightgray 
+            =@activity.person.try(:address)
+            %br
+            =@activity.person.try(:phone)
     .row
       .span6.ptm
         - unless volunteer_signed_in?
