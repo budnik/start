@@ -1,8 +1,8 @@
-.well.decor
-  .span4
+.decor
+  .span3
     %h4.darkgray
       %a{href: "/activities/#{@a.id}"}= @a.name
-    .category.shop
+    %p.category.shop
       Deadline:
       =@a.deadline
     %p.lightgray=@a.description
