@@ -2,7 +2,6 @@
   .span4
     .category.shop Buy goods
     %h4.darkgray
-      %a{href: "/activities/#{@id}"} Buy "Noshpa"
-    .status.open Open
-    %p.lightgray
-      Small description here
+      %a{href: "/activities/#{@a.id}"}= @a.name
+    .status{class: @a.state}=@a.state
+    %p.lightgray=@a.description

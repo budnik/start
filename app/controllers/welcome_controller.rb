@@ -5,7 +5,12 @@ class WelcomeController < ApplicationController
       {
         latitude:   p.latitude,
         longitude:  p.longitude,
-        id: p.activities.last.try(:id)
+        activity: {
+          id: p.activities.last.try(:id),
+          name: p.activities.last.try(:name),
+          state: p.activities.last.try(:state),
+          description: p.activities.last.try(:description)
+        }
       }
     end.to_json
   end
