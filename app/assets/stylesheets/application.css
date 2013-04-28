@@ -85,9 +85,12 @@ a.me.thumbnail {
   padding-top: 30px;
 }
 
-BODY{font-family: 'PT Sans Caption', sans-serif!important;background:url(http://subtlepatterns.com/patterns/silver_scales.png)!important;}
+body{
+  font-family: 'PT Sans Caption', sans-serif !important;
+  background: url(http://subtlepatterns.com/patterns/silver_scales.png) !important;
+}
 .well.decor{background-color:white;border:1px white solid;}
-#activity-show H1{font-size:22px!important;line-height: 26px;}
-#activity-show H2{font-size:16px!important;line-height: 18px}
-#activity-show H3{font-size:12px!important;}*/
+#activity-show h1{font-size:22px!important;line-height: 26px;}
+#activity-show h2{font-size:16px!important;line-height: 18px}
+#activity-show h3{font-size:12px!important;}*/
 .subtlebg{background-color:silver}
