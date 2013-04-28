@@ -3,5 +3,4 @@
     .category.shop Buy goods
     %h4.darkgray
       %a{href: "/activities/#{@a.id}"}= @a.name
-    .status{class: @a.state}=@a.state
     %p.lightgray=@a.description
