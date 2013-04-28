@@ -3,7 +3,9 @@
     .row
       .span4.relative
         %span.icon-heart.icon-heart-small
-        .category.shop 18:00, 5 may 2013
+        .category.shop
+          Deadline:
+          =@activity.deadline
         %h1.darkgray=@activity.name
         %p.status{class: @activity.state}
           Status:

@@ -1,6 +1,8 @@
 .well.decor
   .span4
-    .category.shop Buy goods
     %h4.darkgray
       %a{href: "/activities/#{@a.id}"}= @a.name
+    .category.shop
+      Deadline:
+      =@a.deadline
     %p.lightgray=@a.description

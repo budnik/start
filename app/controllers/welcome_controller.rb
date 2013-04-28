@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
         activity: {
           id: p.activities.last.try(:id),
           name: p.activities.last.try(:name),
-          state: p.activities.last.try(:state),
+          deadline: p.activities.last.try(:deadline),
           description: p.activities.last.try(:description)
         }
       }
