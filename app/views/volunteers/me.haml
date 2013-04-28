@@ -1,8 +1,13 @@
-.row.container
-  .span6
-    .thumbnail
-      =image_tag current_volunteer.image, class: 'pull-right'
-      %h1
-        =current_volunteer.name
-        %small=current_volunteer.email
-      %p=current_volunteer.location
+.container#activity-show
+  .well.decor.span6.offset3
+    .row
+      .span4.relative
+        %span
+          =image_tag current_volunteer.image
+
+        %h1.darkgray=current_volunteer.name
+    .row
+      -current_volunteer.activities.each do |a|
+        %p.lightgray= a.updated_at.to_date
+        = link_to activity_path(a) do
+          %p.darkgray= a.name
