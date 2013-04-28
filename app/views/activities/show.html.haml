@@ -1,22 +1,23 @@
 .container#activity-show
   .well.decor.span6.offset3
     .row
-      .span4
-        .icon_heart
-        .category.shop Buy drugs
-        %h1=@activity.name
+      .span4.relative
+        %span.icon-heart.icon-heart-small
+        .category.shop 18:00, 5 may 2013
+        %h1.darkgray=@activity.name
         %p.status{class: @activity.state}
           Status:
           =@activity.state
-        %p=@activity.description
-      .span2.ptm
-        %h2=@activity.person.try :name
-        %p 
+        %p.lightgray
+          =@activity.description
+      .span2.ptm.border-left
+        %h2.darkgray=@activity.person.try :name
+        %p.lightgray 
           =@activity.person.try(:address)
           %br
           =@activity.person.try(:phone)
     .row
-      .span6
+      .span6.ptm
         - unless volunteer_signed_in?
           = link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do
             %i.icon-facebook-sign
