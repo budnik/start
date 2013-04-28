@@ -1,8 +1,8 @@
-.well
+.well.decor
   .span4
     .category.shop Buy goods
-    %h4
+    %h4.darkgray
       %a{href: "/activities/#{@id}"} Buy "Noshpa"
       .status.open Open
-      %p
-        %em Small description here
+      %p.lightgray
+        Small description here
