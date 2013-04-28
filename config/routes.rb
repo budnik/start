@@ -13,6 +13,7 @@ Start::Application.routes.draw do
   end
   authenticated :volunteer do
     get 'me', to: 'volunteers#me'
+    
   end
   root :to => 'welcome#index'
 end

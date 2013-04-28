@@ -4,6 +4,14 @@ class Activity < ActiveRecord::Base
   belongs_to :category
   attr_accessible :name, :deadline, :description, :state, :person_id, :category_id
 
+  state_machine :state, :initial => :open do
+    event :apply do
+      transition :open => :inprogress
+    end
+  end 
+
+
+
   rails_admin do
     configure :name, :string
     configure :person, :belongs_to_association

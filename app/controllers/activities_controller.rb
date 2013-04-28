@@ -37,6 +37,20 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
+  def apply
+    raise unless current_volunteer
+    @activity = Activity.where(state: :open).find params[:id]
+    @activity.volunteer = current_volunteer
+    if @activity.apply
+      flash[:info]= 'You are applied for an activity'
+      redirect_to '/me'
+    else
+      flash[:error]="Unable to apply. Sorry"
+      redirect_to action: :show
+    end
+
+  end
+
   # POST /activities
   # POST /activities.json
   def create

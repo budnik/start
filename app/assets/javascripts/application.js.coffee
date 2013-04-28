@@ -4,3 +4,5 @@
 #= require_tree .
 $ ->
   $('.alert-success').delay(1000).animate {top: '-100px'}, 2000
+  $('#apply-btn.disabled').click (e)->
+    e.preventDefault()

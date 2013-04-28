@@ -22,30 +22,32 @@
         <div class="container-fluid">
           <%=link_to :root do %>
             <h3 class="pull-left" style="color:#c80013"><span class="icon-heart" style="color:#f20017;"></span>HELP FOR FREE</h3>
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
           <% end %>
-
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-
-          <div class="container pull-right nav-collapse">
+          <% if volunteer_signed_in? %>
+            <div class="container pull-right nav-collapse">
+            <div class='pull-left' id='ava-block'>
+              <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
+                <%= image_tag current_volunteer.image%>
+              <%-end%>
+            </div>
+                  <div class="pull-left row"><%= link_to current_volunteer.try(:name), me_path %></span>
             <ul class="nav">
               <li>
                 <div style="padding-top:10px">
-                  <div class="badge badge-success">2 in progress</div>&nbsp;<div class="badge badge-info">23 done</div>
+                  <div class="badge badge-success">2 doing</div>&nbsp;<div class="badge badge-info">23 done</div>
                 </div>
               </li>
-              <li><%= link_to "John Smith", "/path1"  %>&nbsp;</li>
             </ul>
-            <%unless volunteer_signed_in?%>
-              <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do%>
-                <i class="icon-facebook-sign"></i>Увійти
-              <%-end%>
+
             <%else%>
-              <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
-                <%= image_tag current_volunteer.image%>
+              <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'pull-right'], id: 'fb-login' do%>
+                <i class="icon-facebook-sign"></i>Login
               <%-end%>
             <%-end%>
           </div><!--/.nav-collapse -->
@@ -56,7 +58,7 @@
       <%= yield %>
     <hr>
     <footer>
-      <p>&copy; Company 2013</p>
+      <p>&copy; Help4Free 2013</p>
     </footer>
 
     </div> <!-- /container -->

@@ -1,4 +1,4 @@
-.container 
+.container#activity-show
   .well.span8.offset1
     .span4
       .category.shop Buy goods
@@ -17,6 +17,7 @@
         - unless volunteer_signed_in?
           = link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do
             %i.icon-facebook-sign
-            Увійти
+            Login
         - else
-          = link_to 'Apply', apply_activity_path(@activity), class: [:btn, 'btn-success']
+          - disabled = @activity.open? ? nil : 'disabled inactive'
+          = button_to 'Apply', apply_activity_path(@activity), method: :post, class: [:btn, 'btn-success', disabled], id: 'apply-btn', :confirm => ("Are you sure?" unless disabled)

@@ -43,13 +43,14 @@ a#fb-login i{
   margin: 20px 0 80px;
 }
 
-a.me.thumbnail{
+a.me.thumbnail {
   padding: 3px;
   float:right;
+  margin:0;
 }
 .me.thumbnail img{
-  max-width: 35px;
-  max-height: 35px;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .alert{
@@ -72,3 +73,12 @@ a.me.thumbnail{
 .supagray{color:#6f6f6f;}
 .supaorange{color:#cb6600;}
 .supablue{color:#3db2de;}
+
+#ava-block{
+  width: 56px;
+  margin-right: 30px;
+}
+
+#activity-show{
+  padding-top: 30px;
+}
