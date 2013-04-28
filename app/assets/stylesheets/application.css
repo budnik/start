@@ -71,6 +71,7 @@ a.me.thumbnail {
 .pam{
   padding:10px 20px;
 }
+.ptm{padding-top:20px;}
 .supagray{color:#6f6f6f;}
 .supaorange{color:#cb6600;}
 .supablue{color:#3db2de;}
@@ -84,10 +85,9 @@ a.me.thumbnail {
   padding-top: 30px;
 }
 
-BODY{font-family: 'PT Sans Caption', sans-serif!important;}
-BODY DIV.container#activity-show{background:url(http://subtlepatterns.com/patterns/silver_scales.png);}
+BODY{font-family: 'PT Sans Caption', sans-serif!important;background:url(http://subtlepatterns.com/patterns/silver_scales.png)!important;}
 .well.decor{background-color:white;border:1px white solid;}
-H1{font-size:22px!important;}
-H2{font-size:16px!important;}
-H3{font-size:12px!important;}
+#activity-show H1{font-size:22px!important;line-height: 26px;}
+#activity-show H2{font-size:16px!important;line-height: 18px}
+#activity-show H3{font-size:12px!important;}*/
 .subtlebg{background-color:silver}
