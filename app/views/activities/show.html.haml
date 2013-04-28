@@ -22,7 +22,7 @@
     .row
       .span6.ptm
         - unless volunteer_signed_in?
-          = link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do
+          = link_to volunteer_omniauth_authorize_path('facebook', activity: @activity.id), class: ['btn','btn-info', 'brand'], id: 'fb-login' do
             %i.icon-facebook-sign
             Login to apply
         - else
