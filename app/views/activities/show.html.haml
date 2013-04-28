@@ -12,12 +12,13 @@
           =@activity.state
         %p.lightgray
           =@activity.description
-      .span2.ptm.border-left
-        %h2.darkgray=@activity.person.try :name
-        %p.lightgray 
-          =@activity.person.try(:address)
-          %br
-          =@activity.person.try(:phone)
+      - if volunteer_signed_in? and @activity.volunteer = current_volunteer
+        .span2.ptm.border-left
+          %h2.darkgray=@activity.person.try :name
+          %p.lightgray 
+            =@activity.person.try(:address)
+            %br
+            =@activity.person.try(:phone)
     .row
       .span6.ptm
         - unless volunteer_signed_in?
@@ -26,4 +27,4 @@
             Login
         - else
           - disabled = @activity.open? ? nil : 'disabled inactive'
-          = button_to 'Apply', apply_activity_path(@activity), method: :post, class: [:btn, 'btn-success', disabled], id: 'apply-btn', :confirm => ("Are you sure?" unless disabled)
+          = button_to 'Login to apply', apply_activity_path(@activity), method: :post, class: [:btn, 'btn-success', disabled], id: 'apply-btn', :confirm => ("Are you sure?" unless disabled)
