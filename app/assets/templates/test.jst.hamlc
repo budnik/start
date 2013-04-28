@@ -3,6 +3,6 @@
     .category.shop Buy goods
     %h4.darkgray
       %a{href: "/activities/#{@id}"} Buy "Noshpa"
-      .status.open Open
-      %p.lightgray
-        Small description here
+    .status.open Open
+    %p.lightgray
+      Small description here
