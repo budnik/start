@@ -1,7 +1,9 @@
 Start::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :activities, only: [:show, :apply]
+  resources :activities, only: :show do
+    post :apply, on: :member
+  end
   resources :people, only: :show
 
   devise_for :volunteers, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }

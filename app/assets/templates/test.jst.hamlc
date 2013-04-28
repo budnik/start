@@ -1,0 +1,8 @@
+.well
+  .span4
+    .category.shop Buy goods
+    %h4
+      %a{href: "/activities/#{@id}"} Buy "Noshpa"
+      .status.open Open
+      %p
+        %em Small description here

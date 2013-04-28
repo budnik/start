@@ -243,6 +243,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   devise
+  execjs
   geocoder
   haml
   haml_coffee_assets

@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  belongs_to :person
+  belongs_to :person, class_name: :person
   belongs_to :volunteer
   belongs_to :category
   attr_accessible :name, :deadline, :description, :state, :person_id, :category_id
