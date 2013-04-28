@@ -23,13 +23,12 @@ a#fb-login:hover{
 a#fb-login,
 a#fb-login:focus,
 a#fb-login:hover{
-  padding: 0.06em 0.12em 0 0.12em;
+  padding: 0.1em 0.7em;
   color: #fff;
   text-shadow: none;
-  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-  vertical-align: middle;
+  vertical-align: baseline;
   background-image: none;
-  font-size: 18pt;
+  font-size: 14px;
 }
 a#fb-login i{
   padding-right: 0.12em;
@@ -75,6 +74,8 @@ a.me.thumbnail {
 .supagray{color:#6f6f6f;}
 .supaorange{color:#cb6600;}
 .supablue{color:#3db2de;}
+.darkgray{color:#424242;}
+.lightgray{color:#948890;}
 
 #ava-block{
   width: 56px;
@@ -85,9 +86,14 @@ a.me.thumbnail {
   padding-top: 30px;
 }
 
-BODY{font-family: 'PT Sans Caption', sans-serif!important;background:url(http://subtlepatterns.com/patterns/silver_scales.png)!important;}
+BODY{font-family: 'PT Sans Caption', sans-serif!important;background:url(/fancy_deboss.png) #efefef !important;}
 .well.decor{background-color:white;border:1px white solid;}
-#activity-show H1{font-size:22px!important;line-height: 26px;}
+#activity-show H1{font-size:22px!important;line-height: 26px;font-weight:normal;}
 #activity-show H2{font-size:16px!important;line-height: 18px}
 #activity-show H3{font-size:12px!important;}*/
 .subtlebg{background-color:silver}
+.relative{position:relative;}
+.icon-heart-small{color:#f20017;font-size:26px;position:absolute;left:-33px;}
+.logotype{padding-top:4px;}
+
+.category.shop{color:#f20017;}
