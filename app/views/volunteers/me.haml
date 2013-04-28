@@ -1,13 +1,16 @@
 .container#activity-show
   .well.decor.span6.offset3
-    .row
-      .span4.relative
-        %span
+    .row.plxm
+      %h1.darkgray
+        %span.prs
           =image_tag current_volunteer.image
-
-        %h1.darkgray=current_volunteer.name
-    .row
+        =current_volunteer.name
+        %span.pl
+          .badge.badge-success 2 doing
+          .badge.badge-info 23 done
+    %hr
+    .row.plxm
       -current_volunteer.activities.each do |a|
-        %p.lightgray= a.updated_at.to_date
+        %span.lightgray= a.updated_at.to_date
         = link_to activity_path(a) do
-          %p.darkgray= a.name
+          %p.darkgray.pbs= a.name

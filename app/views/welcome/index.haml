@@ -1,24 +1,15 @@
 %script(type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU")
 =javascript_include_tag :map
 =javascript_tag @json
-.jumbotron
-  .span5
-    %h2.supablue We connect people with desire to help and those who need it.
-  .span6
-    %h4.supaorange People who need your help never were that close to you!
-    %ul
-    %li.supagray Browse a place on the map where you can help
-    %li.supagray Pick type of activity you are interested in
-    %li.supagray Check if you fit the deadline
-    %li.supagray
-      %b.supagray Do it!
-    %br
-    %br
-  #map
-  %p.lead Use it as a starting point to create something more unique.
-
-%hr
-.row-fluid
+.row.bgwhite.pam
+  .span5.offset2
+    %h2.supablue We connect people
+    %h2.supablue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with desire to help
+    %h2.supablue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and those who need it.
+  .span7.ptm
+    %img(src='/intro.png')
+#map
+.row-fluid.ptm
   .span4.pam
     %h4 No more loneliness
     %blockquote

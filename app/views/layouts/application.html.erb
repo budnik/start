@@ -18,7 +18,7 @@
   <body>
 
     <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
+      <div class="navbar-inner" style="background:#3b3b3b;">
         <div class="container-fluid">
           <%=link_to :root do %>
             <div class="logotype pull-left"><img src="/logotype.png"></div>
@@ -36,7 +36,7 @@
                 <%= image_tag current_volunteer.image%>
               <%-end%>
             </div>
-                  <div class="pull-left row"><%= link_to current_volunteer.try(:name), me_path %></span>
+            <div class="pull-left row"><%= link_to current_volunteer.try(:name), me_path, class: ['skyblue'] %></span>
             <ul class="nav">
               <li>
                 <div style="padding-top:10px">
