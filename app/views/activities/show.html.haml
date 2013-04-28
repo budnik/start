@@ -1,19 +1,19 @@
 .container#activity-show
-  .well.span8.offset1
-    .span4
-      .category.shop Buy goods
-      %h1
-        Buy "Noshpa"
-        .status.open Open
-        %p
-          %em Small description here
-    .span3.plm.border-left.pull-right
-      %h2 Petro Netrebko
-      %pre
-        Predslavinska 7, apt. 98
-        %h3 044 567-89-12
+  .well.decor.span6.offset3
     .row
-      .span8
+      .span3
+        .category.shop Buy goods
+        %h1
+          Buy "Noshpa"
+        %p.status.open Open
+        %p Small description here
+      .span2
+        %h2 Petro Netrebko
+        %p
+          Predslavinska 7, apt. 98
+          %h3 044 567-89-12
+    .row
+      .span6
         - unless volunteer_signed_in?
           = link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'brand'], id: 'fb-login' do
             %i.icon-facebook-sign
