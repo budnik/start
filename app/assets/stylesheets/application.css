@@ -118,3 +118,18 @@ body{
 .navbar-inner, .navbar-inner .container-fluid{background-color:#3b3b3b !important;}
 a.skyblue{color:#3db2de;}
 .bgwhite{background-color:white;}
+
+#moto h2{
+  font-size: 7vmin;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 1024px){
+  #moto h2:nth-child(2) {
+    padding-left: 1.5em;
+  }
+  #moto h2:nth-child(3) {
+    padding-left: 3em;
+  }
+}
