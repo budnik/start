@@ -1,3 +1,4 @@
+#ruby=1.9.3@help4free
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
@@ -27,7 +28,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 gem 'capistrano'
 gem 'haml'
-gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'#, git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
 
 gem 'state_machine'
