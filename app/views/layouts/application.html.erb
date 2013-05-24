@@ -22,43 +22,43 @@
         <div class="container-fluid">
           <%=link_to :root do %>
             <div class="logotype pull-left"><img src="/logotype.png"></div>
-<!--             <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
- -->
           <% end %>
           <% if volunteer_signed_in? %>
-            <div class="container pull-right nav-collapse">
-            <div class='pull-left' id='ava-block'>
-              <%= link_to me_path, class: [:brand, :thumbnail, :me] do %>
-                <%= image_tag current_volunteer.image%>
-              <%-end%>
-            </div>
-            <div class="pull-left row"><%= link_to current_volunteer.try(:name), me_path, class: ['skyblue'] %></span>
-            <br/>
-            <ul class="nav">
-              <li>
-                <div style="padding-top:10px">
-                  <div class="badge badge-success">2 doing</div>&nbsp;<div class="badge badge-info">23 done</div>
+            <div class="container pull-right">
+              <span class='visible-phone pull-right'>
+                <%= link_to destroy_user_session_path, class:[:btn, :'btn-large', :'btn-inverse'] do%>
+                  <i class="icon-external-link muted"></i>
+                <% end %>
+              </span>
+              <div class='pull-left' id='ava-block'>
+                <%= link_to me_path, class: [:'pull-right', :thumbnail, :me] do %>
+                  <%= image_tag current_volunteer.image%>
+                <%-end%>
+              </div>
+              <span class='hidden-phone'>
+                <div class="pull-left row">
+                  <%= link_to current_volunteer.try(:name), me_path, class: ['skyblue'] %>
+                  <%= link_to destroy_user_session_path, class:[:btn, :'btn-mini', :'btn-inverse'] do%>
+                    <i class="icon-external-link muted"></i>
+                  <% end %>
                 </div>
-              </li>
-            </ul>
-            <%= link_to destroy_user_session_path, class:[:btn, 'btn-mini', 'btn-inverse'] do%>
-              <i class="icon-external-link"></i>
-            <% end %>
-            <%else%>
-              <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'pull-right'], id: 'fb-login' do%>
-                <i class="icon-facebook-sign"></i>Login
-              <%-end%>
+                <span class='pull-left row' id='achievements'>
+                  <div class="badge badge-success">2 doing</div>
+                  <div class="badge badge-info">23 done</div>
+              </span>
+              </span>
+            </div><!--/.nav-collapse -->
+          <%else%>
+
+            <%= link_to volunteer_omniauth_authorize_path('facebook'), class: ['btn','btn-info', 'pull-right'], id: 'fb-login' do%>
+              <i class="icon-facebook-sign"></i>Login
             <%-end%>
-          </div><!--/.nav-collapse -->
+          <%-end%>
         </div>
       </div>
     </div>
-      <%= bootstrap_flash %>
-      <%= yield %>
+    <%= bootstrap_flash %>
+    <%= yield %>
     <hr>
     <footer>
       <p style="padding-left:30px;">&copy; Help4Free 2013</p>

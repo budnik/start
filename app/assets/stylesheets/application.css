@@ -44,15 +44,16 @@ a#fb-login i{
 }
 
 a.me.thumbnail {
-  padding: 3px;
-  float:right;
-  margin:0;
+  padding: 0;
 }
 .me.thumbnail img{
   max-width: 50px;
   max-height: 50px;
 }
 
+#achievements{
+  padding-top: 3px;
+}
 .alert{
   margin: 0.5em;
   z-index: -1;
@@ -77,6 +78,7 @@ a.me.thumbnail {
 .supagray{color:#6f6f6f;}
 .supaorange{color:#cb6600;}
 .supablue{color:#3db2de;}
+.supasupablue, .supasupablue:hover, .supasupablue:visited{color:#3db2de;}
 .darkgray{color:#424242;}
 .lightgray{color:#948890;}
 

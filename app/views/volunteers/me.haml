@@ -12,8 +12,8 @@
     .row.plxm
       -if current_volunteer.activities.empty?
         %h4
-          You have not applyed for any task yet.
-          =link_to 'Go', root_path
+          You have not applied for any task yet.
+          =link_to 'Go', root_path, class: :supasupablue
           and choose one now!
       -else
         -current_volunteer.activities.each do |a|
