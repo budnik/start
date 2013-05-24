@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @json = "document.points = "
-    @json += Person.joins(:activities, :activities=>:category).map do |p|
+    @json += Person.includes(:activities=>:category).map do |p|
       {
         latitude:   p.latitude,
         longitude:  p.longitude,
@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
           name: p.activities.last.try(:name),
           deadline: p.activities.last.try(:deadline),
           description: p.activities.last.try(:description),
-          icon: p.activities.last.try(:category).icon
+          icon: p.activities.last.try(:category).try(:icon)
         }
       }
     end.to_json
