@@ -33,7 +33,7 @@ ac = 10.upto(30).map do |i|
   r = 1+rand(4)
   { category_id: r,
     deadline: "2013-05-01",
-    name: ["","Купить лекратсв","Купить еды",
+    name: ["","Купить лекраств","Купить еды",
       "Помощь по дому","Подвезти"][r],
     description: Vydumschik::Lorem.sentence,
     state: "open",
