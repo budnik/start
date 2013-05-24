@@ -10,7 +10,13 @@
           .badge.badge-info 23 done
     %hr
     .row.plxm
-      -current_volunteer.activities.each do |a|
-        %span.lightgray= a.updated_at.to_date
-        = link_to activity_path(a) do
-          %p.darkgray.pbs= a.name
+      -if current_volunteer.activities.empty?
+        %h4
+          You have not applyed for any task yet.
+          =link_to 'Go', root_path
+          and choose one now!
+      -else
+        -current_volunteer.activities.each do |a|
+          %span.lightgray= a.updated_at.to_date
+          = link_to activity_path(a) do
+            %p.darkgray.pbs= a.name
