@@ -1,0 +1,8 @@
+.balloon.decor
+  .span3
+    %h4.darkgray
+      %a.activity{href: "/activities/#{@id}"}= @name
+    %p.category.shop
+      Deadline:
+      =@deadline
+    %p.lightgray=@description
