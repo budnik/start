@@ -3,6 +3,7 @@
 #= require twitter/bootstrap
 #= require_tree .
 $ ->
-  $('.alert-success').delay(1000).animate {top: '-100px'}, 2000
+  $('.alert-success').delay(3000).animate {top: '-100px'}, 1000, 'swing', ->
+    $(@).remove()
   $('#apply-btn.disabled').click (e)->
     e.preventDefault()
