@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'apt'
+cookbook 'sudo'
+cookbook 'sudo'
+cookbook 'build-essential'
+cookbook 'runit'
+cookbook 'ohai'
+cookbook 'git'
+cookbook 'openssl'
+cookbook 'redis'
+cookbook 'ruby'
+cookbook 'unicorn'
+cookbook 'rvm', :git => 'git://github.com/fnichol/chef-rvm.git'
+cookbook 'postgresql', :git => 'git://github.com/phlipper/chef-postgresql.git'

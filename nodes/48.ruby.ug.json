@@ -1,0 +1,198 @@
+{
+  // This is the list of the recipes that are going to be cooked.
+  "run_list": [
+    "recipe[sudo]",
+    "recipe[apt]",
+    "recipe[build-essential]",
+    "recipe[ohai]",
+    "recipe[runit]",
+    "recipe[git]",
+
+    // If you want to use postgres, leave this as it is.
+    // Otherwise, comment the three lines below.
+    "recipe[postgresql::contrib]",
+    "recipe[postgresql::server]",
+    "recipe[postgresql::libpq]",
+    "recipe[nginx::default]",
+    "recipe[nginx::apps]",
+    "recipe[unicorn]",
+    "recipe[ruby]",
+    "recipe[chef-rails]",
+    "recipe[rvm::system]"
+  ],
+
+  // You must define who’s going to be the user(s) you’re going to use for deploy.
+  "authorization": {
+    "sudo": {
+      "groups":       ["mechanic"],
+      "users":        ["mechanic"],
+      "passwordless": true
+    }
+  },
+
+  // You must define the username and password for postgres.
+  // Comment if you're not going to use it.
+  "postgresql": {
+    "users": [
+      {
+        "username"  : "mechanic",
+        "password"  : "n0pass",
+        "superuser" : true,
+        "createdb"  : true,
+        "login"     : true
+      }
+    ],
+    "databases": [
+      {
+        "name": "hello",
+        "owner": "mechanic",
+        "template": "template0",
+        "encoding": "utf8",
+        "locale": "en_US.UTF8",
+        "extensions": ["hstore"]
+      }
+    ],
+    // This is for postgres to trust in local connections. You should leave this as is
+    // if you’re not sure what you’re doing.
+    "pg_hba": [
+      "local  all   all                 trust",
+      "host   all   all   127.0.0.1/32  md5",
+      "host   all   all   ::1/128       md5"
+    ]
+  },
+
+  // If you're going to use mysql, comment out the following lines.
+  // "mysql": {
+  //   "server_root_password"  : "asdf1234",
+  //   "server_repl_password"  : "asdf1234",
+  //   "server_debian_password": "asdf1234",
+  //   "server": {
+  //     "packages": ["mysql-server", "libmysqld-dev"]
+  //   }
+  // },
+
+  // You must specify the ubuntu distribution by it’s name to configure the proper version
+  // of nginx, otherwise it’s going to fail.
+  "nginx": {
+    "user"          : "mechanic",
+    "distribution"  : "precise",
+    "components"    : ["main"],
+    // Here you should define all the apps you want nginx to serve for you in the server.
+    "apps": {
+
+      // Example for an application served by Unicorn server
+      "start": {
+        "server_name": "48.ruby.ug www.help4free.org.ua help4free.org.ua",
+        "listen": [80],
+        "public_path": "/var/www/start/current/public",
+        "upstreams"  : [
+          {
+            "name"    : "start",
+            "servers" : ["unix:/var/www/start/shared/pids/start.sock max_fails=3 fail_timeout=1s"]
+          }
+        ],
+        "custom_directives": [
+          "add_header Access-Control-Allow-Origin *;",
+          "add_header Access-Control-Request-Method GET;",
+          "gzip_static on;"
+        ],
+        "try_files" : ["$uri/index.html", "$uri", "@start"],
+        "locations": [
+          {
+            "path": "@start",
+            "directives": [
+              "proxy_set_header X-Forwarded-Proto $scheme;",
+              "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;",
+              "proxy_set_header X-Real-IP $remote_addr;",
+              "proxy_set_header Host $host;",
+              "proxy_redirect off;",
+              "proxy_http_version 1.1;",
+              "proxy_set_header Connection '';",
+              "proxy_pass http://start;"
+            ]
+          },
+          {
+            "path": "~ ^/(assets)/ ",
+            "directives": [
+              "expires max;",
+              "add_header Cache-Control public;"
+            ]
+          },
+          {
+            "path": "~* \\.(ico|html|txt)$",
+            "directives": [
+              "expires max;",
+              "add_header Cache-Control public;"
+            ]
+          }
+        ]
+      }
+      //,
+
+      // // Example for an application served by Thin server
+      // "app2": {
+      //   "listen"     : [80],
+      //   "server_name": "app2.example.com",
+      //   "public_path": "/home/ubuntu/public_html/app2/current/public",
+      //   "upstreams"  : [
+      //     {
+      //       "name"    : "app2",
+      //       "servers" : [
+      //         "localhost:3000 max_fails=3 fail_timeout=1s",
+      //         "localhost:3001 max_fails=3 fail_timeout=1s",
+      //         "localhost:3002 max_fails=3 fail_timeout=1s",
+      //         "localhost:3003 max_fails=3 fail_timeout=1s"
+      //       ]
+      //     }
+      //   ],
+      //   "locations": [
+      //     {
+      //       "path": "/",
+      //       "directives": [
+      //         "proxy_set_header X-Forwarded-Proto $scheme;",
+      //         "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;",
+      //         "proxy_set_header X-Real-IP $remote_addr;",
+      //         "proxy_set_header Host $host;",
+      //         "proxy_redirect off;",
+      //         "proxy_http_version 1.1;",
+      //         "proxy_set_header Connection '';",
+      //         "proxy_pass http://app2;"
+      //       ]
+      //     },
+      //     {
+      //       "path": "~ ^/(assets)/",
+      //       "directives": [
+      //         "gzip_static on;",
+      //         "expires max;",
+      //         "add_header Cache-Control public;"
+      //       ]
+      //     }
+      //   ]
+      // }
+    }
+  },
+
+  // The ruby version you’re going to use. Valid values, by now, are 1.8, 1.9 and 1.9.1
+  "languages": {
+    "ruby": {
+      "default_version": "1.9.1"
+    }
+  },
+
+  // Finally, declare all the system packages required by the services and gems you’re using in your apps.
+  // To give you an example: If you’re using nokogiri, the native extensions compilation will fail unless you have installed the development headers declared below.
+  "chef-rails": {
+    "packages": ["libxml2-dev", "libxslt1-dev", "libncurses5-dev", "libncurses5-dev", "redis-server", "imagemagick"]
+  },
+
+  "rvm": {
+    "group_users": ["mechanic"],
+    "default_ruby": "ruby-1.9.3-p392-railsexpress",
+    "user_default_ruby": "ruby-1.9.3-p392-railsexpress",
+    "rubies": [{
+      "version": "1.9.3-p392-railsexpress",
+      "patch": "railsexpress"
+    },{"version": "2.0"}]
+  }
+
+}
